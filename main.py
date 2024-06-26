@@ -79,8 +79,6 @@ async def send_message(request: MessageRequest):
     
     threads[request.thread_id].append(request.message)
     
-    # Ici, vous pouvez ajouter la logique pour traiter le message et générer une réponse
-    # Par exemple, en utilisant le modèle QA sur l'historique du thread
     
     return {"response": "Message reçu et traité"}
 
