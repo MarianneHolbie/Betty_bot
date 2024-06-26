@@ -47,7 +47,7 @@ async function handleSubmit() {
     const question = newMessage.value.trim();
     messages.value.push({
         name: 'You',
-        isBruno: false,
+        isBetty: false,
         message: question,
         timestamp: new Date().toLocaleString([], {
             timeStyle: 'short',
@@ -59,8 +59,8 @@ async function handleSubmit() {
     try {
         const response = await axios.post('/answer', { question });
         messages.value.push({
-            name: 'Bruno',
-            isBruno: true,
+            name: 'Betty',
+            isBetty: true,
             message: response.data.answer,
             timestamp: new Date().toLocaleString([], {
                 timeStyle: 'short',
@@ -68,8 +68,8 @@ async function handleSubmit() {
         });
     } catch (error) {
         messages.value.push({
-            name: 'Bruno',
-            isBruno: true,
+            name: 'Betty',
+            isBetty: true,
             message: 'Sorry, I could not find an answer.',
             timestamp: new Date().toLocaleString([], {
                 timeStyle: 'short',

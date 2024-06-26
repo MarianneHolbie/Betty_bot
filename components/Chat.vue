@@ -46,11 +46,11 @@
         <div 
             v-for="message in messages" 
             class="flex items-end gap-3" 
-            :class="{ 'flex-row-reverse': !message.isBruno }"
+            :class="{ 'flex-row-reverse': !message.isBetty }"
             >
             <!-- Profile Image -->
             <img
-            v-if="message.isBruno"
+            v-if="message.isBetty"
             class="block w-12 h-12 overflow-hidden rounded-full border-2 border-slate-200/70"
             src="/betty.png"
             />
@@ -67,7 +67,7 @@
             >
             <!-- Message Content -->
              <div 
-                v-if="message.isBruno"
+                v-if="message.isBetty"
                 v-html="message.message">
              </div>
             <div v-else>
@@ -108,8 +108,8 @@ import MessageForm from './MessageForm.vue';
             const content = element.content[0];
             if (content?.type == "text") {
                 messages.value.push({
-                    name: element.role == "assistant" ? "Bruno" : customerInitials.value,
-                    isBruno: element.role == "assistant",
+                    name: element.role == "assistant" ? "Betty" : customerInitials.value,
+                    isBetty: element.role == "assistant",
                     message: content.text.value,
                     timestamp: new Date().toLocaleString([], {
                         timeStyle: "short",
